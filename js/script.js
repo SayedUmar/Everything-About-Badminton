@@ -26,17 +26,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Reveal ranking rows on scroll with stagger
+  // Reveal elements on scroll (timeline, highlights, rankings)
   (function () {
-    var rows = document.querySelectorAll('.ranking-row');
-    if (!rows || !rows.length || !('IntersectionObserver' in window)) return;
+    if (!('IntersectionObserver' in window)) return;
 
-    rows.forEach(function (row, idx) {
+    var revealItems = Array.prototype.slice.call(document.querySelectorAll('.reveal-on-scroll'));
+    var rankingRows = Array.prototype.slice.call(document.querySelectorAll('.ranking-row'));
+
+    if (!revealItems.length && !rankingRows.length) return;
+
+    rankingRows.forEach(function (row, idx) {
       var delay = (idx % 10) * 0.06; // small stagger per row
       row.style.setProperty('--reveal-delay', delay + 's');
+      if (revealItems.indexOf(row) === -1) {
+        revealItems.push(row);
+      }
     });
 
-    var observer = new IntersectionObserver(function (entries, obs) {
+    var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
@@ -46,35 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
 
-    rows.forEach(function (row) { observer.observe(row); });
+    revealItems.forEach(function (item) { observer.observe(item); });
   })();
-
-  // Simple carousel for History page
-  var carousel = document.querySelector('[data-carousel]');
-  if (carousel) {
-    var track = carousel.querySelector('[data-carousel-track]');
-    var slides = Array.prototype.slice.call(track.children);
-    var prev = document.querySelector('[data-carousel-prev]');
-    var next = document.querySelector('[data-carousel-next]');
-    var index = 0;
-
-    function update() {
-      var offset = -index * carousel.clientWidth;
-      track.style.transform = 'translateX(' + offset + 'px)';
-    }
-
-    function clamp(i) {
-      if (i < 0) return 0;
-      if (i > slides.length - 1) return slides.length - 1;
-      return i;
-    }
-
-    if (prev) prev.addEventListener('click', function () { index = clamp(index - 1); update(); });
-    if (next) next.addEventListener('click', function () { index = clamp(index + 1); update(); });
-
-    window.addEventListener('resize', update);
-    update();
-  }
 
   // Fade-out transition on nav link click
   var navLinks = document.querySelectorAll('.nav-list a');
@@ -91,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Theme toggle (present on home page)
+  // Theme toggle
   var themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     function currentTheme() { return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
@@ -108,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
       try { localStorage.setItem('theme', theme); } catch (e) {}
     }
 
-  // Impact page modal
+  // Impact modal
   (function () {
     var cards = document.querySelectorAll('.impact-card');
     var modal = document.getElementById('impact-modal');
@@ -130,14 +110,25 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
       var focusable = modal.querySelector('.modal-close');
-      if (focusable && focusable.focus) focusable.focus();
+      var dialog = modal.querySelector('.modal-dialog');
+      if (dialog) {
+        if (!dialog.hasAttribute('tabindex')) dialog.setAttribute('tabindex', '-1');
+        if (dialog.focus) dialog.focus();
+      } else if (focusable && focusable.focus) {
+        focusable.focus();
+      }
     }
 
     function closeImpactModal() {
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden', 'true');
-      if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
+      document.body.classList.remove('modal-open');
+      if (lastTrigger) {
+        if (lastTrigger.blur) lastTrigger.blur();
+        lastTrigger = null;
+      }
     }
 
     cards.forEach(function (card) {
