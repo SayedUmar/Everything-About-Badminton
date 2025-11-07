@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>History</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/images/Logo_1.png" type="image/png">
+  </head>
+  <body class="preload">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Everything About Badminton</a>
+        <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">☰</button>
+        <ul id="primary-nav" class="nav-list">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a class="active" href="history.html">History</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="ranking.html">Ranking</a></li>
+          <li><a href="recommendation.html">Recommendation</a></li>
+        </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <h1 class="center">History</h1>
+        <div class="selector-hint"><span>&lt;</span> Selection of time Period <span>&gt;</span></div>
+
+        <div class="history-stage">
+          <button class="carousel-btn prev" aria-label="Previous period" data-carousel-prev>❮</button>
+
+          <div class="side-preview left"></div>
+
+          <div class="carousel" data-carousel>
+            <div class="carousel-track" data-carousel-track>
+              <article class="history-card">
+                <div class="history-card-inner">
+                  <div>
+                    <h2>Time Period</h2>
+                    <p>
+                      Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix
+                      ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos
+                      erant dolorum an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis
+                      accusam eu dicat falli consulatu at vis. Te facilisis mnesarchum ne qui tation efficiendi in.
+                    </p>
+                  </div>
+                  <div class="img-placeholder" aria-label="image placeholder" role="img"></div>
+                </div>
+              </article>
+
+              <article class="history-card">
+                <div class="history-card-inner">
+                  <div>
+                    <h2>Another Period</h2>
+                    <p>Placeholder content for the next time period in the sequence.</p>
+                  </div>
+                  <div class="img-placeholder" aria-label="image placeholder" role="img"></div>
+                </div>
+              </article>
+
+              <article class="history-card">
+                <div class="history-card-inner">
+                  <div>
+                    <h2>Later Period</h2>
+                    <p>Placeholder content for a later period. Replace with your report text.</p>
+                  </div>
+                  <div class="img-placeholder" aria-label="image placeholder" role="img"></div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="side-preview right"></div>
+
+          <button class="carousel-btn next" aria-label="Next period" data-carousel-next>❯</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+  </html>
+
+

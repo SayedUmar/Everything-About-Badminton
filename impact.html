@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Impact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/images/Logo_1.png" type="image/png">
+  </head>
+  <body class="preload">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Everything About Badminton</a>
+        <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">☰</button>
+        <ul id="primary-nav" class="nav-list">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a class="active" href="impact.html">Impact</a></li>
+          <li><a href="ranking.html">Ranking</a></li>
+          <li><a href="recommendation.html">Recommendation</a></li>
+        </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <h1 class="page-title center">IMPACT</h1>
+        <div class="impact-grid">
+          <article class="impact-card" tabindex="0">
+            <h3>Social</h3>
+            <p>
+              Badminton brings people together, whether played casually among friends or competitively in clubs and tournaments. It helps individuals connect through shared interests and builds a sense of belonging in a community. Regular participation can improve teamwork skills and teach players how to cooperate and communicate effectively with others.
+            </p>
+            <div class="impact-modal-content" hidden aria-hidden="true">
+              <ul>
+                <li>Encourages teamwork and cooperation when playing doubles or in clubs.</li>
+                <li>Helps build friendships and social networks through regular participation.</li>
+                <li>Promotes inclusion by bringing together people from different backgrounds.</li>
+                <li>Improves communication and sportsmanship skills.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="impact-card" tabindex="0">
+            <h3>Physical</h3>
+            <p>
+              Playing badminton regularly offers a full-body workout that enhances both strength and endurance. The fast-paced movements help improve coordination, balance, and overall agility. It is also an effective way to maintain a healthy lifestyle, as it boosts the heart rate and promotes better circulation, keeping the body active and fit.
+            </p>
+            <div class="impact-modal-content" hidden aria-hidden="true">
+              <ul>
+                <li>Enhances overall fitness — improves stamina, agility, and muscle strength.</li>
+                <li>Boosts cardiovascular health and lung capacity.</li>
+                <li>Improves reflexes, coordination, and balance.</li>
+                <li>Helps with weight management and body flexibility.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="impact-card" tabindex="0">
+            <h3>Emotional</h3>
+            <p>
+              Badminton can have a positive influence on emotional well-being by providing a sense of relief and joy. Engaging in the game helps release tension and boosts mood through physical activity. It also gives players a sense of accomplishment, especially when they improve their performance or achieve personal goals, which builds confidence and satisfaction.
+            </p>
+            <div class="impact-modal-content" hidden aria-hidden="true">
+              <ul>
+                <li>Reduces stress and anxiety through physical activity and fun.</li>
+                <li>Boosts self-esteem and confidence when skills improve.</li>
+                <li>Promotes a sense of achievement and motivation.</li>
+                <li>Helps release endorphins, improving overall mood and mental well-being.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="impact-card" tabindex="0">
+            <h3>Economic</h3>
+            <p>
+              Economically, badminton supports various industries such as sports equipment manufacturing, event management, and facility maintenance. It creates career opportunities for coaches, players, and organizers. Additionally, large-scale tournaments can attract sponsors and visitors, contributing to the growth of local businesses and sports tourism.
+            </p>
+            <div class="impact-modal-content" hidden aria-hidden="true">
+              <ul>
+                <li>Creates job opportunities (coaches, trainers, equipment manufacturers, event organizers).</li>
+                <li>Generates income through tournaments, clubs, and sponsorships.</li>
+                <li>Encourages spending on sports gear and fitness facilities.</li>
+                <li>Can contribute to tourism and local economies when hosting competitions.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Impact Modal -->
+    <div class="modal" id="impact-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="impact-modal-title">
+      <div class="modal-overlay" data-close="true"></div>
+      <div class="modal-dialog" role="document">
+        <button class="modal-close" type="button" aria-label="Close" data-close="true">×</button>
+        <h2 id="impact-modal-title" class="modal-title">Impact Details</h2>
+        <p id="impact-modal-body">
+
+        </p>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+  </html>
+
+
