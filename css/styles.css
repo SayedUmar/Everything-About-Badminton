@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 :root {
-  --color-1: #6f9ac6;  /* desaturated blue */
-  --color-2: #1565c0;  /* royal blue */
-  --color-3: #0e64c9;  /* vivid blue */
-  --color-4: #4df0ff;  /* aqua */
+  --color-1: #6f9ac6;
+  --color-2: #1565c0;
+  --color-3: #0e64c9;
+  --color-4: #4df0ff;
   --text: #1f2937;
   --muted: #6b7280;
   --bg: #ffffff;
@@ -84,14 +84,14 @@ body:not(.intro-page)::before {
   background: linear-gradient(90deg, var(--color-1), var(--color-2), var(--color-3));
   color: #fff;
   border-bottom: 1px solid rgba(0,0,0,.05);
-  border-radius: 0 0 18px 18px; /* rounded bottom corners */
+  border-radius: 0 0 18px 18px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .nav {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 20px 24px; /* bigger bar */
+  padding: 20px 24px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -102,7 +102,7 @@ body:not(.intro-page)::before {
   font-weight: 700;
   text-decoration: none;
   letter-spacing: .3px;
-  font-size: 20px; /* larger brand */
+  font-size: 20px;
 }
 
 .nav-toggle {
@@ -128,9 +128,9 @@ body:not(.intro-page)::before {
   color: #e8f3ff;
   text-decoration: none;
   font-weight: 600;
-  padding: 10px 8px; /* larger click target */
+  padding: 10px 8px;
   font-size: 16px;
-  border-bottom: 3px solid transparent; /* thicker active marker */
+  border-bottom: 3px solid transparent;
 }
 
 .nav-list a:hover,
@@ -203,7 +203,6 @@ p { line-height: 1.7; color: var(--text); }
   mask: none;
 }
 
-/* If an actual image is placed inside the placeholder, fill and crop nicely */
 .img-placeholder img {
   width: 100%;
   height: 100%;
@@ -212,7 +211,6 @@ p { line-height: 1.7; color: var(--text); }
   display: block;
 }
 
-/* When img-placeholder class is used directly on img element */
 img.img-placeholder {
   object-fit: cover;
   border: none;
@@ -221,7 +219,6 @@ img.img-placeholder {
 }
 img.img-placeholder::after { display: none; }
 
-/* Standalone content image matching placeholder dimensions */
 .content-image {
   width: 100%;
   height: 220px;
@@ -349,7 +346,7 @@ img.img-placeholder::after { display: none; }
 }
 
 .impact-card {
-  border: 2px solid var(--panel-border); /* medium gray like mock */
+  border: 2px solid var(--panel-border);
   border-radius: 6px;
   padding: 16px 18px;
   background: var(--panel-bg);

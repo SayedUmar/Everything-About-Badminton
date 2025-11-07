@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Prevent selection, drag, and context menu
   document.addEventListener('selectstart', function (e) { e.preventDefault(); });
   document.addEventListener('dragstart', function (e) { e.preventDefault(); });
   document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
-  // Apply saved theme early
   try {
     var savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -11,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   } catch (e) {}
 
-  // Fade-in on load
   document.body.classList.add('page-ready');
   var yearEl = document.getElementById('year');
   if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
@@ -26,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Reveal elements on scroll (timeline, highlights, rankings)
   (function () {
     if (!('IntersectionObserver' in window)) return;
 
@@ -36,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!revealItems.length && !rankingRows.length) return;
 
     rankingRows.forEach(function (row, idx) {
-      var delay = (idx % 10) * 0.06; // small stagger per row
+      var delay = (idx % 10) * 0.06;
       row.style.setProperty('--reveal-delay', delay + 's');
       if (revealItems.indexOf(row) === -1) {
         revealItems.push(row);
@@ -56,13 +52,11 @@ document.addEventListener('DOMContentLoaded', function () {
     revealItems.forEach(function (item) { observer.observe(item); });
   })();
 
-  // Fade-out transition on nav link click
   var navLinks = document.querySelectorAll('.nav-list a');
   navLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
       var href = link.getAttribute('href');
-      if (!href || href.startsWith('#')) return; // ignore anchors
-      // If already on this page, let default happen
+      if (!href || href.startsWith('#')) return;
       var current = location.pathname.split('/').pop() || 'index.html';
       if (href === current) return;
       e.preventDefault();
@@ -71,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Theme toggle
   var themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     function currentTheme() { return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
@@ -88,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
       try { localStorage.setItem('theme', theme); } catch (e) {}
     }
 
-  // Impact modal
   (function () {
     var cards = document.querySelectorAll('.impact-card');
     var modal = document.getElementById('impact-modal');
@@ -150,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   })();
 
-    // Initialize toggle state
     setTheme(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
 
     themeToggle.addEventListener('click', function () {
